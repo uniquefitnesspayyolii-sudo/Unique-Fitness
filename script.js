@@ -71,59 +71,23 @@ reveals.forEach(sec=>sec.classList.add("reveal"));
 
 // Intro Screen
 
-window.addEventListener("load",()=>{
+const loader = document.getElementById("loader");
 
-    const intro=document.getElementById("intro");
-    
-    setTimeout(()=>{
-    
-    intro.style.opacity="0";
-    
-    setTimeout(()=>{
-    
-    intro.style.display="none";
-    
-    },800);
-    
-    },2800);
-    
-    });
+function hideLoader() {
 
-    window.addEventListener("load", () => {
-
-        setTimeout(() => {
-        
-        document.getElementById("loader").classList.add("loader-hide");
-        
-        },2500);
-        
-        });
-
-
-        const loader = document.getElementById("loader");
-
-function hideLoader(){
-
-loader.style.opacity="0";
-
-loader.style.visibility="hidden";
-
-loader.style.pointerEvents="none";
-
+    loader.style.opacity = "0";
+    loader.style.visibility = "hidden";
+    loader.style.pointerEvents = "none";
 }
 
-// Auto hide after 2.5s
-window.addEventListener("load",()=>{
-
-setTimeout(hideLoader,2500);
-
+// Auto hide after 2.5 seconds
+window.addEventListener("load", () => {
+    setTimeout(hideLoader, 2500);
 });
 
-// Skip on click/tap
-loader.addEventListener("click",hideLoader);
+// Skip when user clicks or taps
+loader.addEventListener("click", hideLoader);
+loader.addEventListener("touchstart", hideLoader);
 
-// Skip by touching screen
-loader.addEventListener("touchstart",hideLoader);
-
-// Skip by pressing any key
-window.addEventListener("keydown",hideLoader);
+// Skip with keyboard
+window.addEventListener("keydown", hideLoader);
