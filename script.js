@@ -1,36 +1,129 @@
+// Mobile Menu
+
 const menuBtn = document.querySelector(".menu-btn");
-const navLinks = document.querySelector(".nav-links");
-const menuIcon = menuBtn.querySelector("i");
+const nav = document.querySelector(".nav-links");
 
-menuBtn.addEventListener("click", () => {
+menuBtn.onclick = () => {
 
-    navLinks.classList.toggle("show");
+nav.classList.toggle("active");
 
-    if(navLinks.classList.contains("show")){
+menuBtn.innerHTML = nav.classList.contains("active")
 
-        menuIcon.classList.remove("fa-bars");
-        menuIcon.classList.add("fa-xmark");
+? '<i class="fa-solid fa-xmark"></i>'
 
-    }else{
+: '<i class="fa-solid fa-bars"></i>';
 
-        menuIcon.classList.remove("fa-xmark");
-        menuIcon.classList.add("fa-bars");
+};
 
-    }
-
-});
+// Close Menu
 
 document.querySelectorAll(".nav-links a").forEach(link=>{
 
-    link.addEventListener("click",()=>{
+link.onclick=()=>{
 
-        navLinks.classList.remove("show");
+nav.classList.remove("active");
 
-        menuIcon.classList.remove("fa-xmark");
+menuBtn.innerHTML='<i class="fa-solid fa-bars"></i>';
 
-        menuIcon.classList.add("fa-bars");
-
-    });
+}
 
 });
 
+// Navbar Background
+
+window.addEventListener("scroll",()=>{
+
+const header=document.querySelector("header");
+
+if(window.scrollY>80){
+
+header.style.background="#050505ee";
+
+}else{
+
+header.style.background="rgba(0,0,0,.55)";
+
+}
+
+});
+
+// Scroll Reveal
+
+const reveals=document.querySelectorAll("section");
+
+window.addEventListener("scroll",()=>{
+
+reveals.forEach(sec=>{
+
+const top=sec.getBoundingClientRect().top;
+
+if(top<window.innerHeight-120){
+
+sec.classList.add("active");
+
+}
+
+});
+
+});
+
+reveals.forEach(sec=>sec.classList.add("reveal"));
+
+// Intro Screen
+
+window.addEventListener("load",()=>{
+
+    const intro=document.getElementById("intro");
+    
+    setTimeout(()=>{
+    
+    intro.style.opacity="0";
+    
+    setTimeout(()=>{
+    
+    intro.style.display="none";
+    
+    },800);
+    
+    },2800);
+    
+    });
+
+    window.addEventListener("load", () => {
+
+        setTimeout(() => {
+        
+        document.getElementById("loader").classList.add("loader-hide");
+        
+        },2500);
+        
+        });
+
+
+        const loader = document.getElementById("loader");
+
+function hideLoader(){
+
+loader.style.opacity="0";
+
+loader.style.visibility="hidden";
+
+loader.style.pointerEvents="none";
+
+}
+
+// Auto hide after 2.5s
+window.addEventListener("load",()=>{
+
+setTimeout(hideLoader,2500);
+
+});
+
+// Skip on click/tap
+loader.addEventListener("click",hideLoader);
+
+// Skip by touching screen
+loader.addEventListener("touchstart",hideLoader);
+
+// Skip by pressing any key
+window.addEventListener("keydown",hideLoader);
