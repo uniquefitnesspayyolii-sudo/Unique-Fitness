@@ -2204,89 +2204,31 @@ PREMIUM HERO INTRO
     /*=========================================
 PREMIUM LOADER
 =========================================*/
+/* ==========================
+INTRO SCREEN
+========================== */
 
 #loader{
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100vh;
 
-    background: #050505;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    z-index: 99999;
-
-    transition: opacity .8s ease,
-                visibility .8s ease;
-
-    overflow: hidden;
-}
+    position:fixed;
     
-    .loader-content{
+    top:0;
+    left:0;
     
-    text-align:center;
+    width:100%;
+    height:100%;
     
-    position:relative;
+    background:#000;
     
-    z-index:2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     
-    }
+    z-index:99999;
     
-    .loader-logo{
+    transition:1s;
     
-    font-size:70px;
-    
-    font-weight:900;
-    
-    letter-spacing:6px;
-    
-    color:#FFD54A;
-    
-    opacity:0;
-    
-    transform:scale(.6);
-    
-    animation:logoZoom 1s forwards;
-    
-    }
-    
-    .loader-content p{
-    
-    margin-top:25px;
-    
-    font-size:18px;
-    
-    letter-spacing:8px;
-    
-    color:#ff2d2d;
-    
-    opacity:0;
-    
-    animation:textFade 1s forwards;
-    
-    animation-delay:.9s;
-    
-    }
-    
-    .loader-line{
-    
-    width:0;
-    
-    height:4px;
-    
-    margin:30px auto;
-    
-    background:linear-gradient(90deg,#ff2d2d,#FFD54A,#ff2d2d);
-    
-    border-radius:50px;
-    
-    animation:lineGrow 1.2s forwards;
-    
-    animation-delay:.5s;
+    overflow:hidden;
     
     }
     
@@ -2296,47 +2238,146 @@ PREMIUM LOADER
     
     position:absolute;
     
-    width:600px;
-    
-    height:600px;
+    width:700px;
+    height:700px;
     
     background:radial-gradient(circle,
-    
-    rgba(255,213,74,.25),
-    
+    rgba(255,210,70,.18),
     transparent 70%);
     
-    animation:pulse 3s infinite;
+    animation:pulse 4s infinite;
     
     }
     
-    #loader::after{
+    .intro-content{
     
-    content:"";
+    position:relative;
     
-    position:absolute;
+    z-index:2;
     
-    width:500px;
-    
-    height:500px;
-    
-    background:radial-gradient(circle,
-    
-    rgba(255,0,60,.15),
-    
-    transparent 70%);
-    
-    animation:pulse2 4s infinite;
+    text-align:center;
     
     }
     
-    @keyframes logoZoom{
+    .intro-logo{
+    
+    width:170px;
+    
+    margin:auto;
+    
+    opacity:0;
+    
+    transform:translateY(-80px) scale(.7);
+    
+    animation:logoDrop 1s forwards;
+    
+    filter:drop-shadow(0 0 30px rgba(255,200,0,.4));
+    
+    }
+    
+    .intro-title{
+    
+    margin-top:30px;
+    
+    font-size:62px;
+    
+    font-weight:900;
+    
+    line-height:1;
+    
+    letter-spacing:5px;
+    
+    opacity:0;
+    
+    animation:titleFade 1s forwards;
+    
+    animation-delay:.8s;
+    
+    }
+    
+    .gold{
+    
+    color:#FFD54A;
+    
+    }
+    
+    .red{
+    
+    color:#e32222;
+    
+    }
+    
+    .fitness{
+    
+    color:#FFD54A;
+    
+    font-size:58px;
+    
+    }
+    
+    .intro-line{
+    
+    width:0;
+    
+    height:4px;
+    
+    margin:28px auto;
+    
+    background:linear-gradient(90deg,#e32222,#FFD54A,#e32222);
+    
+    border-radius:50px;
+    
+    animation:lineGrow 1.2s forwards;
+    
+    animation-delay:1.2s;
+    
+    }
+    
+    .intro-text{
+    
+    margin-top:20px;
+    
+    font-size:18px;
+    
+    letter-spacing:7px;
+    
+    color:#d7d7d7;
+    
+    opacity:0;
+    
+    animation:titleFade 1s forwards;
+    
+    animation-delay:1.6s;
+    
+    }
+    
+    .loader-hide{
+    
+    opacity:0;
+    
+    visibility:hidden;
+    
+    pointer-events:none;
+    
+    }
+    
+    /* Animations */
+    
+    @keyframes logoDrop{
     
     0%{
     
     opacity:0;
     
-    transform:scale(.5);
+    transform:translateY(-120px) scale(.4);
+    
+    }
+    
+    60%{
+    
+    opacity:1;
+    
+    transform:translateY(20px) scale(1.08);
     
     }
     
@@ -2344,35 +2385,19 @@ PREMIUM LOADER
     
     opacity:1;
     
-    transform:scale(1);
+    transform:translateY(0) scale(1);
     
     }
     
     }
     
-    @keyframes lineGrow{
-    
-    0%{
-    
-    width:0;
-    
-    }
-    
-    100%{
-    
-    width:260px;
-    
-    }
-    
-    }
-    
-    @keyframes textFade{
+    @keyframes titleFade{
     
     from{
     
     opacity:0;
     
-    transform:translateY(20px);
+    transform:translateY(25px);
     
     }
     
@@ -2386,11 +2411,27 @@ PREMIUM LOADER
     
     }
     
+    @keyframes lineGrow{
+    
+    from{
+    
+    width:0;
+    
+    }
+    
+    to{
+    
+    width:260px;
+    
+    }
+    
+    }
+    
     @keyframes pulse{
     
     0%{
     
-    transform:scale(.8);
+    transform:scale(.9);
     
     }
     
@@ -2402,38 +2443,10 @@ PREMIUM LOADER
     
     100%{
     
-    transform:scale(.8);
+    transform:scale(.9);
     
     }
     
-    }
-    
-    @keyframes pulse2{
-    
-    0%{
-    
-    transform:scale(1);
-    
-    }
-    
-    50%{
-    
-    transform:scale(.7);
-    
-    }
-    
-    100%{
-    
-    transform:scale(1);
-    
-    }
-    
-    }
-    
-    .loader-hide{
-        opacity:0;
-        visibility:hidden;
-        pointer-events:none;
     }
 
     /* Skip Intro */
