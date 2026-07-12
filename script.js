@@ -69,25 +69,32 @@ sec.classList.add("active");
 
 reveals.forEach(sec=>sec.classList.add("reveal"));
 
-// Intro Screen
+// ==========================
+// Premium Intro
+// ==========================
 
 const loader = document.getElementById("loader");
 
 function hideLoader() {
 
-    loader.style.opacity = "0";
-    loader.style.visibility = "hidden";
-    loader.style.pointerEvents = "none";
+    if (!loader.classList.contains("loader-hide")) {
+        loader.classList.add("loader-hide");
+    }
+
 }
 
-// Auto hide after 2.5 seconds
+// Auto hide after 2.8 seconds
 window.addEventListener("load", () => {
-    setTimeout(hideLoader, 2500);
+
+    setTimeout(hideLoader, 2800);
+
 });
 
-// Skip when user clicks or taps
+// Skip on click
 loader.addEventListener("click", hideLoader);
+
+// Skip on touch
 loader.addEventListener("touchstart", hideLoader);
 
-// Skip with keyboard
+// Skip with any key
 window.addEventListener("keydown", hideLoader);
