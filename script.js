@@ -1,100 +1,156 @@
-// Mobile Menu
+// =========================================
+// MOBILE MENU
+// =========================================
 
 const menuBtn = document.querySelector(".menu-btn");
 const nav = document.querySelector(".nav-links");
 
-menuBtn.onclick = () => {
+if (menuBtn && nav) {
 
-nav.classList.toggle("active");
+    menuBtn.onclick = () => {
 
-menuBtn.innerHTML = nav.classList.contains("active")
+        nav.classList.toggle("active");
 
-? '<i class="fa-solid fa-xmark"></i>'
+        menuBtn.innerHTML = nav.classList.contains("active")
+            ? '<i class="fa-solid fa-xmark"></i>'
+            : '<i class="fa-solid fa-bars"></i>';
 
-: '<i class="fa-solid fa-bars"></i>';
-
-};
-
-// Close Menu
-
-document.querySelectorAll(".nav-links a").forEach(link=>{
-
-link.onclick=()=>{
-
-nav.classList.remove("active");
-
-menuBtn.innerHTML='<i class="fa-solid fa-bars"></i>';
+    };
 
 }
 
-});
 
-// Navbar Background
+// Close menu when clicking navigation link
 
-window.addEventListener("scroll",()=>{
+document.querySelectorAll(".nav-links a").forEach(link => {
 
-const header=document.querySelector("header");
+    link.onclick = () => {
 
-if(window.scrollY>80){
+        if (nav) nav.classList.remove("active");
 
-header.style.background="#050505ee";
+        if (menuBtn) {
+            menuBtn.innerHTML =
+                '<i class="fa-solid fa-bars"></i>';
+        }
 
-}else{
-
-header.style.background="rgba(0,0,0,.55)";
-
-}
+    };
 
 });
 
-// Scroll Reveal
 
-const reveals=document.querySelectorAll("section");
+// =========================================
+// NAVBAR BACKGROUND
+// =========================================
 
-window.addEventListener("scroll",()=>{
+window.addEventListener("scroll", () => {
 
-reveals.forEach(sec=>{
+    const header = document.querySelector("header");
 
-const top=sec.getBoundingClientRect().top;
+    if (!header) return;
 
-if(top<window.innerHeight-120){
+    if (window.scrollY > 80) {
 
-sec.classList.add("active");
+        header.style.background = "#050505ee";
 
-}
+    } else {
+
+        header.style.background = "rgba(0,0,0,.55)";
+
+    }
 
 });
 
+
+// =========================================
+// SCROLL REVEAL
+// =========================================
+
+const reveals = document.querySelectorAll("section");
+
+reveals.forEach(sec => {
+    sec.classList.add("reveal");
 });
 
-reveals.forEach(sec=>sec.classList.add("reveal"));
+window.addEventListener("scroll", () => {
 
-// ==========================
-// Premium Intro
-// ==========================
+    reveals.forEach(sec => {
+
+        const top = sec.getBoundingClientRect().top;
+
+        if (top < window.innerHeight - 120) {
+
+            sec.classList.add("active");
+
+        }
+
+    });
+
+});
+
+
+// =========================================
+// COMPACT ACCORDION
+// =========================================
+
+const infoCards = document.querySelectorAll(".info-card");
+
+infoCards.forEach(card => {
+
+    const button = card.querySelector(".info-header");
+
+    button.addEventListener("click", () => {
+
+        const isOpen = card.classList.contains("open");
+
+        // Close every other section
+        infoCards.forEach(otherCard => {
+            otherCard.classList.remove("open");
+        });
+
+        // Open clicked section
+        if (!isOpen) {
+            card.classList.add("open");
+        }
+
+    });
+
+});
+
+
+// =========================================
+// INTRO SCREEN
+// =========================================
 
 const loader = document.getElementById("loader");
 
 function hideLoader() {
 
-    if (!loader.classList.contains("loader-hide")) {
-        loader.classList.add("loader-hide");
-    }
+    if (!loader) return;
+
+    loader.style.opacity = "0";
+    loader.style.visibility = "hidden";
+    loader.style.pointerEvents = "none";
 
 }
 
-// Auto hide after 2.8 seconds
+
+// Auto hide
 window.addEventListener("load", () => {
 
-    setTimeout(hideLoader, 2800);
+    setTimeout(hideLoader, 2500);
 
 });
 
-// Skip on click
-loader.addEventListener("click", hideLoader);
 
-// Skip on touch
-loader.addEventListener("touchstart", hideLoader);
+// Skip intro by tap/click
+if (loader) {
 
-// Skip with any key
+    loader.addEventListener("click", hideLoader);
+
+    loader.addEventListener("touchstart", hideLoader);
+
+}
+
+
+// Skip intro with keyboard
 window.addEventListener("keydown", hideLoader);

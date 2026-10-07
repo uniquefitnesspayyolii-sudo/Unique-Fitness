@@ -2463,3 +2463,911 @@ INTRO SCREEN
 
     /* Skip Intro */
 
+
+
+
+    /* =========================================
+   COMPACT INFORMATION SECTIONS
+========================================= */
+
+.compact-info {
+    width: min(100% - 30px, 1000px);
+    margin: 0 auto;
+    padding: 25px 0 70px;
+}
+
+
+/* MAIN CARD */
+
+.info-card {
+    margin: 12px 0;
+    border: 1px solid rgba(255, 215, 70, 0.18);
+    border-radius: 18px;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,.035),
+        rgba(255,0,30,.025)
+    );
+    overflow: hidden;
+}
+
+
+/* HEADER */
+
+.info-header {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: left;
+}
+
+
+.info-header span {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.info-header span i {
+    color: #ffd43b;
+    font-size: 18px;
+}
+
+
+.info-header > i {
+    color: #ffd43b;
+    font-size: 15px;
+    transition: transform .3s ease;
+}
+
+
+/* ACTIVE HEADER */
+
+.info-card.open .info-header {
+    background: rgba(255, 210, 50, .045);
+}
+
+
+.info-card.open .info-header > i {
+    transform: rotate(45deg);
+}
+
+
+/* CONTENT */
+
+.info-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+        max-height .45s ease,
+        opacity .3s ease,
+        padding .35s ease;
+    padding: 0 20px;
+}
+
+
+.info-card.open .info-content {
+    max-height: 2500px;
+    opacity: 1;
+    padding: 0 20px 22px;
+}
+
+
+.info-content p {
+    color: #d0d0d0;
+    line-height: 1.7;
+}
+
+
+/* MINI GRID */
+
+.mini-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+
+.mini-grid > div {
+    padding: 16px;
+    border-radius: 14px;
+    background: rgba(255,255,255,.035);
+}
+
+
+.mini-grid i {
+    color: #ffd43b;
+    font-size: 22px;
+}
+
+
+.mini-grid h3 {
+    font-size: 15px;
+    margin: 8px 0;
+}
+
+
+.mini-grid p {
+    font-size: 13px;
+    margin: 0;
+}
+
+
+/* MEMBERSHIP */
+
+.membership-box {
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 16px;
+    background: rgba(255,255,255,.035);
+    border: 1px solid rgba(255,255,255,.06);
+}
+
+
+.membership-box h3 {
+    color: #ffd43b;
+    margin-top: 0;
+}
+
+
+.membership-box p {
+    margin: 7px 0;
+    font-size: 14px;
+}
+
+
+.membership-box a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 11px 22px;
+    border-radius: 30px;
+    background: linear-gradient(135deg,#ffd83d,#c99b00);
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+
+.gold-plan {
+    border-color: rgba(255,215,60,.35);
+}
+
+
+.popular-tag {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #e52323;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+
+/* PROGRAMS */
+
+.program-list {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 12px;
+}
+
+
+.program-list > div {
+    padding: 16px;
+    border-radius: 14px;
+    background: rgba(255,255,255,.035);
+}
+
+
+.program-list i {
+    color: #ff3030;
+    font-size: 21px;
+}
+
+
+.program-list h3 {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+
+.program-list p {
+    font-size: 13px;
+    margin: 0;
+}
+
+
+/* EXPERIENCE */
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+}
+
+
+.experience-item {
+    text-align: center;
+    padding: 20px 10px;
+    border-radius: 15px;
+    background: rgba(255,255,255,.035);
+}
+
+
+.experience-item strong {
+    display: block;
+    color: #ffd43b;
+    font-size: 25px;
+}
+
+
+.experience-item span {
+    display: block;
+    color: #ccc;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+
+.ladies-batch {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 18px;
+    border-radius: 15px;
+    background: linear-gradient(
+        135deg,
+        rgba(255,40,40,.08),
+        rgba(255,215,60,.06)
+    );
+}
+
+
+.ladies-batch > i {
+    font-size: 28px;
+    color: #ff3030;
+}
+
+
+.ladies-batch h3 {
+    margin: 0 0 5px;
+    color: #ffd43b;
+}
+
+
+.ladies-batch p {
+    margin: 4px 0;
+}
+
+
+/* PERSONAL TRAINING */
+
+.training-box {
+    padding: 18px;
+    margin-bottom: 12px;
+    border-radius: 15px;
+    background: rgba(255,255,255,.035);
+}
+
+
+.training-box h3 {
+    color: #ffd43b;
+    margin-top: 0;
+}
+
+
+/* GALLERY */
+
+.compact-gallery {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 8px;
+}
+
+
+.compact-gallery img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+
+/* REVIEWS */
+
+.review-list {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+}
+
+
+.review-list > div {
+    padding: 18px;
+    border-radius: 15px;
+    background: rgba(255,255,255,.035);
+}
+
+
+.review-list strong {
+    color: #ffd43b;
+}
+
+
+.review-list p {
+    font-size: 13px;
+}
+
+
+/* VIDEO */
+
+.video-box {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+
+.video-box iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+/* CONTACT */
+
+.contact-details {
+    padding-bottom: 20px;
+}
+
+
+.contact-details h3 {
+    color: #ffd43b;
+}
+
+
+.timing-box {
+    padding: 18px;
+    margin: 15px 0;
+    border-radius: 15px;
+    background: rgba(255,255,255,.035);
+}
+
+
+.timing-box h3 {
+    margin-top: 0;
+}
+
+
+.holiday {
+    color: #ff4040 !important;
+    font-weight: 700;
+}
+
+
+.compact-button {
+    display: inline-block;
+    margin: 8px 5px 8px 0;
+    padding: 11px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    background: #ffd43b;
+    color: #000;
+}
+
+
+.whatsapp-button {
+    background: #25D366;
+    color: #fff;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .compact-info {
+        width: calc(100% - 20px);
+        padding-top: 15px;
+    }
+
+    .info-header {
+        padding: 18px 15px;
+        font-size: 15px;
+    }
+
+    .info-card.open .info-content {
+        padding: 0 15px 18px;
+    }
+
+    .mini-grid {
+        grid-template-columns: repeat(2,1fr);
+        gap: 8px;
+    }
+
+    .mini-grid > div {
+        padding: 13px;
+    }
+
+    .mini-grid h3 {
+        font-size: 13px;
+    }
+
+    .mini-grid p {
+        font-size: 11px;
+    }
+
+    .program-list {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 6px;
+    }
+
+    .experience-item {
+        padding: 15px 5px;
+    }
+
+    .experience-item strong {
+        font-size: 20px;
+    }
+
+    .experience-item span {
+        font-size: 10px;
+    }
+
+    .ladies-batch {
+        padding: 14px;
+    }
+
+    .compact-gallery {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .review-list {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE COMPACT LAYOUT FIX
+   ========================================= */
+
+   @media (max-width: 600px){
+
+    /* General spacing */
+    section{
+        padding:55px 18px;
+    }
+
+    /* Section titles */
+    section h2{
+        font-size:28px;
+        line-height:1.2;
+        margin-bottom:12px;
+    }
+
+    section h2::after{
+        width:60px;
+        height:3px;
+        margin:10px auto;
+    }
+
+    /* -------------------------
+       HERO
+    ------------------------- */
+
+    .hero{
+        min-height:100svh;
+        height:auto;
+        padding:110px 20px 70px;
+    }
+
+    .hero-content{
+        width:100%;
+        max-width:100%;
+    }
+
+    .hero h3{
+        font-size:13px;
+        letter-spacing:3px;
+        margin-bottom:15px;
+    }
+
+    .hero h1{
+        font-size:42px;
+        line-height:1.05;
+        letter-spacing:1px;
+        margin-bottom:18px;
+    }
+
+    .hero p{
+        font-size:14px;
+        line-height:1.7;
+        margin-bottom:28px;
+        padding:0 5px;
+    }
+
+    .hero-buttons{
+        gap:12px;
+    }
+
+    .join-btn,
+    .call-btn{
+        width:190px;
+        padding:13px 20px;
+        font-size:14px;
+    }
+
+
+    /* -------------------------
+       ABOUT
+    ------------------------- */
+
+    .about p{
+        font-size:14px;
+        line-height:1.8;
+    }
+
+
+    /* -------------------------
+       FEATURE / FACILITY CARDS
+    ------------------------- */
+
+    .facility-grid{
+        grid-template-columns:1fr;
+        gap:16px;
+        margin-top:30px;
+    }
+
+    .facility-card{
+        padding:25px 20px;
+        border-radius:18px;
+    }
+
+    .facility-card i{
+        font-size:38px;
+        margin-bottom:14px;
+    }
+
+    .facility-card h3{
+        font-size:20px;
+        margin-bottom:8px;
+    }
+
+    .facility-card p{
+        font-size:13px;
+        line-height:1.7;
+    }
+
+
+    /* -------------------------
+       MEMBERSHIP
+    ------------------------- */
+
+    .plan-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+        margin-top:30px;
+    }
+
+    .plan-card{
+        padding:25px 20px;
+        border-radius:20px;
+    }
+
+    .plan-card h3{
+        font-size:23px;
+        margin-bottom:20px;
+    }
+
+    .plan-card li{
+        font-size:13px;
+        padding:7px 0;
+    }
+
+    .plan-card a{
+        margin-top:22px;
+        padding:13px;
+    }
+
+    .popular{
+        transform:none;
+    }
+
+
+    /* -------------------------
+       PERSONAL TRAINING
+    ------------------------- */
+
+    .about .features{
+        grid-template-columns:1fr;
+        gap:16px;
+        margin-top:30px;
+    }
+
+    .box{
+        padding:25px 20px;
+        border-radius:20px;
+    }
+
+    .box i{
+        font-size:40px;
+        margin-bottom:15px;
+    }
+
+    .box h3{
+        font-size:20px;
+        margin-bottom:12px;
+    }
+
+    .box p{
+        font-size:13px;
+        line-height:1.8;
+    }
+
+
+    /* -------------------------
+       STATS
+    ------------------------- */
+
+    .stats{
+        padding:55px 18px;
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .stat{
+        padding:22px 10px;
+        border-radius:16px;
+    }
+
+    .stat h1{
+        font-size:32px;
+        margin-bottom:5px;
+    }
+
+    .stat p{
+        font-size:12px;
+    }
+
+    .stat::after{
+        width:35px;
+        height:3px;
+        margin-top:10px;
+    }
+
+
+    /* -------------------------
+       GALLERY
+    ------------------------- */
+
+    .gallery-grid{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+        margin-top:30px;
+    }
+
+    .gallery-grid img{
+        height:150px;
+        border-radius:12px;
+        border-width:1px;
+    }
+
+
+    /* -------------------------
+       REVIEWS
+    ------------------------- */
+
+    .review-grid{
+        grid-template-columns:1fr;
+        gap:15px;
+        margin-top:30px;
+    }
+
+    .review-card{
+        padding:25px 20px;
+        border-radius:18px;
+    }
+
+    .review-card p{
+        font-size:13px;
+        line-height:1.8;
+        margin:20px 0;
+    }
+
+    .review-card h3{
+        font-size:17px;
+    }
+
+
+    /* -------------------------
+       VIDEO
+    ------------------------- */
+
+    .video-box{
+        border-radius:16px;
+        margin-top:30px;
+    }
+
+    .video-box iframe{
+        height:210px;
+    }
+
+
+    /* -------------------------
+       CONTACT
+    ------------------------- */
+
+    .contact-container{
+        grid-template-columns:1fr;
+        gap:18px;
+        margin-top:30px;
+    }
+
+    .contact-info{
+        padding:25px 20px;
+        border-radius:18px;
+    }
+
+    .contact-info h3{
+        font-size:23px;
+    }
+
+    .contact-info p{
+        font-size:13px;
+        margin:12px 0;
+    }
+
+    .map iframe{
+        height:280px !important;
+        border-radius:18px;
+    }
+
+
+    /* -------------------------
+       FOOTER
+    ------------------------- */
+
+    footer{
+        padding:50px 18px;
+    }
+
+    footer h3{
+        font-size:25px;
+    }
+
+    footer p{
+        font-size:13px;
+    }
+
+    .socials{
+        gap:12px;
+        margin:22px 0;
+    }
+
+    .socials i{
+        width:45px;
+        height:45px;
+        font-size:19px;
+    }
+
+
+    /* -------------------------
+       WHATSAPP
+    ------------------------- */
+
+    .whatsapp{
+        width:55px;
+        height:55px;
+        right:15px;
+        bottom:15px;
+        font-size:27px;
+    }
+
+}
+
+/* =========================
+   GYM GALLERY
+   ========================= */
+
+   .gym-gallery{
+    padding:80px 6%;
+    background:#050505;
+}
+
+.gallery-heading{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.gallery-heading span{
+    color:#ff2d2d;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:4px;
+}
+
+.gallery-heading h2{
+    margin:10px 0;
+    color:#FFD54A;
+    font-size:42px;
+    font-weight:800;
+}
+
+.gallery-heading p{
+    color:#aaa;
+    margin:0;
+}
+
+.gym-gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.gym-gallery-grid img{
+    width:100%;
+    aspect-ratio:4 / 3;
+    height:auto;
+    object-fit:cover;
+    display:block;
+    border-radius:18px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .gym-gallery{
+        padding:55px 15px;
+    }
+
+    .gallery-heading{
+        margin-bottom:25px;
+    }
+
+    .gallery-heading h2{
+        font-size:30px;
+    }
+
+    .gym-gallery-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+    .gym-gallery-grid img{
+        width:100%;
+        aspect-ratio:4 / 3;
+        height:auto;
+        object-fit:cover;
+        border-radius:14px;
+    }
+
+}
